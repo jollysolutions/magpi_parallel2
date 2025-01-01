@@ -1,6 +1,7 @@
 from numpy           import linspace, reshape
 from matplotlib      import pyplot
 from multiprocessing import Pool
+import time
 
 xmin, xmax = -2.0 ,0.5   # x range
 ymin, ymax = -1.25,1.25  # y range
@@ -19,11 +20,22 @@ Y = linspace(ymin,ymax,ny) # pixel co-ordinates
 
 # main loops
 if __name__=='__main__':
+  
+  # record start time
+  start = time.time()
+
   p = Pool()
   Z = [complex(x,y) for y in Y for x in X]
   N = p.map(mandelbrot,Z)
 
   N = reshape(N, (nx,ny)) # change to rectangular array
 
+  # record end time
+  end = time.time()
+  # print the difference between start 
+  # and end time in milli. secs
+  print("The time of execution of above program is :",
+        (end-start) * 10**3, "ms")
+  
   pyplot.imshow(N) # plot the image
   pyplot.show()
