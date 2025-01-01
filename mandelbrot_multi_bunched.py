@@ -16,16 +16,17 @@ def mandelbrot(z): # computation for one pixel
 
 def compute_all_x(y):
   Z = [complex(x,y) for x in X]
-  return map(mandelbrot,Z)
+  return list(map(mandelbrot,Z))
 
 X = linspace(xmin,xmax,nx) # lists of x and y
 Y = linspace(ymin,ymax,ny) # pixel co-ordinates
 
 # main loops
-p = Pool()
-N = p.map(compute_all_x,Y)
+if __name__=='__main__':
+  p = Pool()
+  N = p.map(compute_all_x,Y)
 
-N = reshape(N, (nx,ny)) # change to rectangular array
+  N = reshape(N, (nx,ny)) # change to rectangular array
 
-pyplot.imshow(N) # plot the image
-pyplot.show()
+  pyplot.imshow(N) # plot the image
+  pyplot.show()

@@ -18,11 +18,12 @@ X = linspace(xmin,xmax,nx) # lists of x and y
 Y = linspace(ymin,ymax,ny) # pixel co-ordinates
 
 # main loops
-p = Pool()
-Z = [complex(x,y) for y in Y for x in X]
-N = p.map(mandelbrot,Z)
+if __name__=='__main__':
+  p = Pool()
+  Z = [complex(x,y) for y in Y for x in X]
+  N = p.map(mandelbrot,Z)
 
-N = reshape(N, (nx,ny)) # change to rectangular array
+  N = reshape(N, (nx,ny)) # change to rectangular array
 
-pyplot.imshow(N) # plot the image
-pyplot.show()
+  pyplot.imshow(N) # plot the image
+  pyplot.show()
