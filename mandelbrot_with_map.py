@@ -29,7 +29,7 @@ N = reshape(N, (nx,ny)) # change to rectangular array
 
 # record end time
 end = time.time()
-# print the difference between start 
+# print the difference between start
 # and end time in milli. secs
 print("The time of execution of above program is :",
       (end-start) * 10**3, "ms")

@@ -24,7 +24,7 @@ Y = linspace(ymin,ymax,ny) # pixel co-ordinates
 
 # main loops
 if __name__=='__main__':
-  
+
   # record start time
   start = time.time()
 
@@ -35,10 +35,10 @@ if __name__=='__main__':
 
   # record end time
   end = time.time()
-  # print the difference between start 
+  # print the difference between start
   # and end time in milli. secs
   print("The time of execution of above program is :",
         (end-start) * 10**3, "ms")
-  
+
   pyplot.imshow(N) # plot the image
   pyplot.show()
